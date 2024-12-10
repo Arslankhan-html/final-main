@@ -11,12 +11,21 @@ const host = "localhost";
 
 
 // MySQL
+// const mysql = require("mysql2");
+// const db = mysql.createConnection({
+//     host: "localhost",
+//     port: 3307,
+//     user: "root",
+//     password: "Password123",
+//     database: "secoms3190",
+// });
+
 const mysql = require("mysql2");
 const db = mysql.createConnection({
     host: "localhost",
-    port: 3307,
+    port: 3306,
     user: "root",
-    password: "Password123",
+    password: "Libra$1234",
     database: "secoms3190",
 });
 
@@ -80,6 +89,39 @@ app.post("/menu", (req, res) => {
         res.status(500).send({ error: "An unexpected error occurred: " + err.message });
     }
 
+});
+
+app.delete("/menu/:id", (req, res) => {
+    const {id} = req.params;
+    const query = "DELETE FROM menu WHERE id = ?";
+
+    db.query(query, [id], (err, result) => {
+        if(err)
+        {
+            console.error("Error deleting item:", err);
+            res.status(500).send({ error: "An unexpected error occurred: " + err.message });
+        }
+        else {
+            res.status(201).send("Item deleted successfully");
+        }
+    })
+
+});
+
+
+app.put("/menu/:id", (req, res) => {
+    const {id} = req.params;
+    const { name, calories, cost, category, servingsize } = req.body;
+    const query = "UPDATE menu SET name = ?, calories = ?, cost = ?, category = ?, servingsize = ? WHERE id = ?";
+    
+    db.query(query, [name, calories, cost, category, servingsize, id], (err, result) => {
+        if (err) 
+            {
+            console.error("Error updating menu item:", err);
+            return res.status(500).send({ error: "Error updating food item" });
+        }
+        res.status(200).send("Menu item updated successfully");
+    });
 });
 
 app.listen(port, () => {

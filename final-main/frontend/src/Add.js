@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
+import React, { useState } from 'react';
 const Add = () => {
     const [name, setName] = useState("");
     const [calories, setCalories] = useState("");
@@ -22,16 +22,33 @@ const Add = () => {
 
     const addFoodItem = async() => {
         try {
-            const formData = new FormData();
-            formData.append("name", name);
-            formData.append("calories", calories);
-            formData.append("cost", cost);
-            formData.append("category", category);
-            formData.append("servingsize", servingsize);
+            // const formData = new FormData();
+            // formData.append("name", name);
+            // formData.append("calories", calories);
+            // formData.append("cost", cost);
+            // formData.append("category", category);
+            // formData.append("servingsize", servingsize);
+            
+            //Make a food object
+            const foodData = {
+                name,
+                calories,
+                cost,
+                category,
+                servingsize
+            };
+
+
             //send form to backend
             const response = await fetch("http://localhost:8081/menu", {
                 method: "POST",
-                body: formData,
+                // body: formData,
+                
+                //turn foodData into Json format
+                headers: {
+                    "Content-Type": "application/json", 
+                },
+                body: JSON.stringify(foodData),
             });
             if (!response.ok) {
                 const errorData = await response.json();
@@ -78,3 +95,4 @@ const Add = () => {
     );
 };
 export default Add;
+
