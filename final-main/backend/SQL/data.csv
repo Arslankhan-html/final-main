@@ -1,0 +1,17 @@
+id,name,calories,cost,category,servingsize
+1,Plain Bagel,228,5,Bakery,1 Bagel
+2,Parmesan Herb Bagel,280,5,Bakery,1 Bagel
+3,Blueberry Muffin,443,5,Bakery,1 Muffin
+4,Triple Chocolate Muffin,489,5,Bakery,1 Muffin
+5,Lemon Strawberry Bread,500,5,Bakery,1 Slice (1/10 Loaf)
+6,Plain Croissant,280,5,Bakery,1 Croissant
+7,Strawberry Cream Cheese Danish,337,5,Bakery,1 Danish
+8,Iced Cinnamon Roll,498,5,Bakery,1 Cinnamon Roll
+9,Chocolate Chip Coolie,363,5,Bakery,1 Cookie
+10,M&M Cookie,363,5,Bakery,1 Cookie
+11,Buttermilk Brownie,378,5,Bakery,3x4 Cut (1/12 Pan)
+12,Pumpkin Bar,419,5,Bakery,3x4 Cut (1/12 Pan)
+13,Chicken Caesar Salad,411,10,Salad,1 Salad
+14,Garlic Salad with Ranch,380,10,Salad,1 Salad
+15,Chicken & Chedder Croissant,357,7,Sandwich,1 Sandwich
+16,Veggie Flatbread Sandwich,480,8,Sandwich,1 Sandwich
