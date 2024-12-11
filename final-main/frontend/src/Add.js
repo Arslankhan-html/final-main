@@ -1,5 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useState } from 'react';
+import {Card, Form, Button} from "react-bootstrap";
+
 const Add = () => {
     const [name, setName] = useState("");
     const [calories, setCalories] = useState("");
@@ -64,33 +66,40 @@ const Add = () => {
     }
     
     return (
-    <div className="container mt-4">
-        <h2 className="text-center">Add Food Item</h2>
-        <form onSubmit={handleSubmit}>
-            <div className="mb-3">
-                <label className="form-label">Name</label>
-                <input type="text" className="form-control" value={name} onChange={(e) => setName(e.target.value)} required />
-            </div>
-            <div className="mb-3">
-                <label className="form-label">Calories</label>
-                <input type="text" className="form-control" value={calories} onChange={(e) => setCalories(e.target.value)} required />
-            </div>
-            <div className="mb-3">
-                <label className="form-label">Cost</label>
-                <input className="form-control" value={cost} onChange={(e) => setCost(e.target.value)} ></input>
-            </div>
-            <div className="mb-3">
-                <label className="form-label">Category</label>
-                <input className="form-control" value={category} onChange={(e) => setCategory(e.target.value)} ></input>
-            </div>
-            <div className="mb-3">
-                <label className="form-label">Serving Size</label>
-                <input className="form-control" value={servingsize} onChange={(e) => setServingsize(e.target.value)} ></input>
-            </div>
-            <button type="submit" className="btn btn-primary">
-                Add Food Item
-            </button>
-        </form>
+    <div className="container mt-4 w-50" >
+        <Card bg="dark" text="light" border="dark">
+            <Card.Header as="h1" className="text-center m-2">Add Food Item</Card.Header>
+            <Card.Body>
+                
+                <Card.Text>
+                    <Form onSubmit={handleSubmit}>
+                        <Form.Group className="mb-3">
+                            <Form.Label className="form-label">Name</Form.Label>
+                            <Form.Control size="lg" type="text" className="form-control" value={name} onChange={(e) => setName(e.target.value)} required />
+                        </Form.Group>
+                        <Form.Group className="mb-3">
+                            <Form.Label className="form-label">Calories</Form.Label>
+                            <Form.Control size="lg" type="text" className="form-control" value={calories} onChange={(e) => setCalories(e.target.value)} required />
+                        </Form.Group>
+                        <Form.Group className="mb-3">
+                            <Form.Label className="form-label">Cost</Form.Label>
+                            <Form.Control size="lg" className="form-control" value={cost} onChange={(e) => setCost(e.target.value)} ></Form.Control>
+                        </Form.Group>
+                        <Form.Group className="mb-3">
+                            <Form.Label className="form-label">Category</Form.Label>
+                            <Form.Control size="lg" className="form-control" value={category} onChange={(e) => setCategory(e.target.value)} ></Form.Control>
+                        </Form.Group>
+                        <Form.Group className="mb-3">
+                            <Form.Label className="form-label">Serving Size</Form.Label>
+                            <Form.Control size="lg" className="form-control" value={servingsize} onChange={(e) => setServingsize(e.target.value)} ></Form.Control>
+                        </Form.Group>
+                        <Button type="submit" variant="outline-success">
+                            Add Food Item
+                        </Button>
+                    </Form>
+                </Card.Text>
+            </Card.Body>
+        </Card>
     </div>
     );
 };

@@ -11,11 +11,9 @@ const Navigation = () => {
 
                 </Nav>
 
-            <Navbar.Brand href="/" style={{ fontSize: '2rem', textAlign: 'center', flexGrow: 1 }}>Café de Pantalons Fantaisie</Navbar.Brand>
+            <Navbar.Brand style={{ fontSize: '2rem', textAlign: 'center', flexGrow: 1 }}>Café de Pantalons Fantaisie</Navbar.Brand>
             
                 <Nav >
-                    <Nav.Link href="/">Leave A Review</Nav.Link>
-
                     <Nav.Link href="/about">About</Nav.Link>
                 </Nav>
             </Container>

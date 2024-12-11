@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useEffect, useState } from 'react';
+import {Card, ListGroup, ListGroupItem, Container, Row, Col} from "react-bootstrap";
 
 
 const Menu = ({menu, setMenu}) => {
@@ -123,31 +124,33 @@ const Menu = ({menu, setMenu}) => {
 
 
     return (
-        <div className="container">
-            <h2 className="text-center mt-4">Menu Items</h2>
-            <ul className="list-group">
-                {menu.map((item) => (
-                    <li key={item.id} className="list-group-item d-flex align-items-center">
-                        <div>
-                            <div>
-                                <strong>{item.name}</strong>
-                                {item.servingsize}
-                                {item.cost}
-                                {item.calories}
-                            </div>
-                            <div>
-                                
+        <div className="container mt-4 w-50">
+            <Card bg="dark" text="light" border="dark">
+                <Card.Header as="h1" className="text-center m-2">Menu Items</Card.Header>
+                <ListGroup variant="flush"> 
+                    {menu.map((item) => (
+                        <ListGroup.Item action variant="dark">
+                            <Container>
+                                <Row className="align-items-center">
+                                <Col className="w-25 text-center"><strong>{item.name}</strong></Col>
+                                <Col className="w-25  text-center">Serving Size: {item.servingsize}</Col>
+                                <Col className="w-25 text-center">${item.cost}</Col>
+                                <Col className="w-25 text-center">{item.calories} calories</Col>
+                                <Col className="w-25 text-center">                                  
                                 <button class="btn custom-btn" onClick={() => deleteItem(item.id)}>  <i class="bi bi-x" ></i></button>
-                           
+                                
                                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"></link>
                                 <button  className="btn custom-btn" onClick={() => PopUp(item)}> <i className="bi bi-pencil"></i></button>
-                            </div>
-                            
+                                </Col>
+                                </Row>
+                                
 
-                        </div>
-                    </li>
-                ))}
-            </ul>
+                            </Container>
+                            
+                        </ListGroup.Item>
+                    ))}
+                </ListGroup>
+            </Card>
 
                 {/* Bootstrap Popup Modal*/}
             {showPopUp && selectedItem && (
